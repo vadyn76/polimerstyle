@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полимерная Посуда | ЭКО-стиль</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #3b82f6; /* Blue 500 */
+            --color-accent: #f87171;  /* Red 400 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Light background */
+            color: #1f2937; /* Dark text */
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div id="app" class="min-h-screen flex flex-col">
+
+        <!-- Header/Navigation (Шапка) -->
+        <header class="bg-white shadow-md sticky top-0 z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+                <!-- Logo -->
+                <div class="text-2xl font-bold text-blue-600">
+                    Polimer<span class="text-gray-800">Style</span>
+                </div>
+
+                <!-- Navigation Links (Навигационные ссылки) -->
+                <nav class="hidden md:flex space-x-8 text-lg">
+                    <a href="#catalog" class="text-gray-600 hover:text-blue-600 transition duration-200">Каталог</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-200">О нас</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-200">Контакты</a>
+                </nav>
+
+                <!-- Icons (Иконки поиска и корзины) -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-gray-100 transition duration-200">
+                        <i data-lucide="search" class="w-6 h-6 text-gray-700"></i>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100 transition duration-200 relative">
+                        <i data-lucide="shopping-cart" class="w-6 h-6 text-gray-700"></i>
+                        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full">3</span>
+                    </button>
+                    <button class="md:hidden p-2 rounded-full hover:bg-gray-100 transition duration-200">
+                        <i data-lucide="menu" class="w-6 h-6 text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow">
+            
+            <!-- Hero Section (Приветственный блок) -->
+            <section class="bg-gradient-to-r from-blue-50 to-indigo-100 py-16 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:justify-between">
+                    <!-- Text Content -->
+                    <div class="lg:w-1/2 mb-10 lg:mb-0 text-center lg:text-left">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                            Легкость и Прочность.
+                        </h1>
+                        <p class="mt-4 text-xl sm:text-2xl text-gray-600">
+                            Идеальная посуда из полимера для современного, экологичного дома.
+                        </p>
+                        <a href="#catalog" class="mt-8 inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition duration-300 shadow-lg hover:shadow-xl">
+                            Смотреть коллекцию
+                            <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Image -->
+                    <div class="lg:w-1/2 flex justify-center lg:justify-end">
+                        <!-- Placeholder Image URL for polymer dishware -->
+                        <img src="https://placehold.co/500x400/3b82f6/ffffff?text=Полимерная+Посуда" 
+                             alt="[Изображение полимерной посуды]" 
+                             class="rounded-3xl shadow-2xl object-cover w-full max-w-sm sm:max-w-md lg:max-w-lg"
+                             onerror="this.src='https://placehold.co/500x400/3b82f6/ffffff?text=Посуда';"
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Grid / Catalog Section (Каталог товаров) -->
+            <section id="catalog" class="py-16 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-12">
+                        Наш Каталог
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                        
+                        <!-- Product Card 1 -->
+                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                            <div class="aspect-square bg-gray-50 flex items-center justify-center p-4">
+                                <img src="https://placehold.co/400x400/e0f2f1/0f766e?text=Набор+Тарелок" 
+                                     alt="[Изображение набора тарелок]" 
+                                     class="w-full h-full object-cover rounded-lg"
+                                     onerror="this.src='https://placehold.co/400x400/e0f2f1/0f766e?text=Тарелки';"
+                                >
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-800">Набор тарелок "Мрамор"</h3>
+                                <p class="mt-2 text-sm text-gray-500 line-clamp-2">
+                                    Экологичный, ударопрочный полимер. Идеально для пикников и дачи.
+                                </p>
+                                <div class="flex items-center justify-between mt-4">
+                                    <span class="text-2xl font-bold text-blue-600">1 499 ₽</span>
+                                    <button class="flex items-center bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300 shadow">
+                                        <i data-lucide="shopping-bag" class="w-4 h-4 mr-1"></i>
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                            <div class="aspect-square bg-gray-50 flex items-center justify-center p-4">
+                                <img src="https://placehold.co/400x400/ffe4e6/be123c?text=Чашка+Кофе" 
+                                     alt="[Изображение чашки для кофе]" 
+                                     class="w-full h-full object-cover rounded-lg"
+                                     onerror="this.src='https://placehold.co/400x400/ffe4e6/be123c?text=Чашка';"
+                                >
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-800">Чашка для кофе "Утро"</h3>
+                                <p class="mt-2 text-sm text-gray-500 line-clamp-2">
+                                    Двойные стенки, сохраняет тепло, не скользит. Идеальный объем.
+                                </p>
+                                <div class="flex items-center justify-between mt-4">
+                                    <span class="text-2xl font-bold text-blue-600">399 ₽</span>
+                                    <button class="flex items-center bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300 shadow">
+                                        <i data-lucide="shopping-bag" class="w-4 h-4 mr-1"></i>
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                            <div class="aspect-square bg-gray-50 flex items-center justify-center p-4">
+                                <img src="https://placehold.co/400x400/eef2ff/4338ca?text=Детский+Набор" 
+                                     alt="[Изображение детского комплекта]" 
+                                     class="w-full h-full object-cover rounded-lg"
+                                     onerror="this.src='https://placehold.co/400x400/eef2ff/4338ca?text=Набор';"
+                                >
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-800">Детский комплект "Радуга"</h3>
+                                <p class="mt-2 text-sm text-gray-500 line-clamp-2">
+                                    100% безопасный полимер, не бьется, яркие цвета. 
+                                </p>
+                                <div class="flex items-center justify-between mt-4">
+                                    <span class="text-2xl font-bold text-blue-600">899 ₽</span>
+                                    <button class="flex items-center bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300 shadow">
+                                        <i data-lucide="shopping-bag" class="w-4 h-4 mr-1"></i>
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card 4 -->
+                        <div class="product-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                            <div class="aspect-square bg-gray-50 flex items-center justify-center p-4">
+                                <img src="https://placehold.co/400x400/f0f9ff/0369a1?text=Набор+Салатников" 
+                                     alt="[Изображение набора салатников]" 
+                                     class="w-full h-full object-cover rounded-lg"
+                                     onerror="this.src='https://placehold.co/400x400/f0f9ff/0369a1?text=Салатники';"
+                                >
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-800">Набор салатников "Аква"</h3>
+                                <p class="mt-2 text-sm text-gray-500 line-clamp-2">
+                                    Идеально для приготовления и сервировки. Легко моется.
+                                </p>
+                                <div class="flex items-center justify-between mt-4">
+                                    <span class="text-2xl font-bold text-blue-600">1 199 ₽</span>
+                                    <button class="flex items-center bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300 shadow">
+                                        <i data-lucide="shopping-bag" class="w-4 h-4 mr-1"></i>
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section (Особенности) -->
+            <section id="about" class="bg-gray-100 py-16 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+                        Почему полимер?
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10">
+                        Полимерная посуда PolimerStyle - это сочетание современного дизайна, абсолютной безопасности и долговечности.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <i data-lucide="leaf" class="w-8 h-8 text-green-500 mx-auto mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Экологичность</h3>
+                            <p class="text-gray-500 text-sm">
+                                Мы используем перерабатываемые и безопасные для пищевых продуктов полимеры.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <i data-lucide="shield" class="w-8 h-8 text-blue-500 mx-auto mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Ударопрочность</h3>
+                            <p class="text-gray-500 text-sm">
+                                Наша посуда не бьется и не трескается, идеально подходит для детей и активного отдыха.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <i data-lucide="palette" class="w-8 h-8 text-pink-500 mx-auto mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Яркий Дизайн</h3>
+                            <p class="text-gray-500 text-sm">
+                                Современные формы и богатая палитра цветов для вашего стильного интерьера.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact/CTA Section (Секция подписки) -->
+            <section id="contact" class="py-16 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-blue-600 rounded-2xl p-10 shadow-xl">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+                        Свяжитесь с нами
+                    </h2>
+                    <p class="text-lg text-blue-200 mb-8">
+                        Подпишитесь на рассылку и получите скидку 10% на первый заказ.
+                    </p>
+                    <form class="max-w-xl mx-auto flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Ваш Email" class="w-full sm:flex-grow p-3 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-800" required>
+                        <button type="submit" class="w-full sm:w-auto p-3 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition duration-300 shadow-md">
+                            Подписаться
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer (Футер) -->
+        <footer class="bg-gray-800 text-white mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8 mb-8">
+                    
+                    <!-- Col 1: Logo & Info -->
+                    <div>
+                        <div class="text-xl font-bold text-blue-400 mb-3">PolimerStyle</div>
+                        <p class="text-sm text-gray-400">
+                            Легкая и прочная посуда для жизни без забот.
+                        </p>
+                    </div>
+
+                    <!-- Col 2: Quick Links -->
+                    <div>
+                        <h4 class="font-semibold mb-3">Ссылки</h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li><a href="#catalog" class="hover:text-blue-400 transition">Каталог</a></li>
+                            <li><a href="#about" class="hover:text-blue-400 transition">О нас</a></li>
+                            <li><a href="#" class="hover:text-blue-400 transition">Возврат</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Col 3: Support -->
+                    <div>
+                        <h4 class="font-semibold mb-3">Поддержка</h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li><a href="#" class="hover:text-blue-400 transition">FAQ</a></li>
+                            <li><a href="#contact" class="hover:text-blue-400 transition">Обратная связь</a></li>
+                            <li><a href="#" class="hover:text-blue-400 transition">Политика конфиденциальности</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 4: Contact -->
+                    <div>
+                        <h4 class="font-semibold mb-3">Контакты</h4>
+                        <p class="text-sm text-gray-400">Email: info@polimerstyle.ru</p>
+                        <p class="text-sm text-gray-400">Телефон: +7 (495) 123-45-67</p>
+                    </div>
+
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-center text-sm text-gray-500">
+                    &copy; 2025 PolimerStyle. Все права защищены.
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Initialize Lucide Icons -->
+    <script>
+        // Активация иконок Lucide после загрузки страницы
+        window.onload = function() {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
